@@ -1,0 +1,127 @@
+﻿@model PagedList.IPagedList<ITFinalProject.Models.Cliente>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Clientes</h2>
+<p>
+    @Html.ActionLink("Adicionar", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+@using (Html.BeginForm("Index", "Clientes", FormMethod.Get, new { @class = "form" }))
+{
+    <div class="form-group">
+        @Html.Label("Nome:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 left">
+            @Html.TextBox("term", ViewBag.CurrentFilterNome as string, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("NumeroIdentificação:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 left">
+            @Html.TextBox("numeroident", ViewBag.CurrentFilterNumeroIdentificacao as string, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Nº de Cliente:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 left">
+            @Html.TextBox("numeroclient", ViewBag.CurrentFilterNumeroCliente as string, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Data de Nascimento:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 left">
+            @Html.TextBox("datanasc", ViewBag.CurrentFilterDataNascimento as string, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Tipo de Documento:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-6 left">
+            @Html.DropDownList("tipodoc", (List<SelectListItem>)ViewBag.tipodocm, "Tipo Doc", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Numero de conta:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-4 left">
+            @Html.TextBox("numconta", ViewBag.CurrentFilterNumeroConta as string, new { @class = "form-control" })
+        </div>
+    </div>
+        <div class="form-group">
+            @Html.Label("Numero de Itens Por Pagina:", new { @class = "col-md-2 control-label" })
+            <div class="col-md-6 left">
+                @Html.DropDownList("pageSize", (SelectList)ViewBag.pageSizes, "Itens Por Pagina", new { @class = "form-control", onchange = "this.form.submit();" })
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Filtrar" />
+}
+<span><i class="glyphicon glyphicon-info-sign"> @ViewBag.nResultados Resultados encontrados</i></span>
+
+@using (Html.BeginForm("Details", "Clientes", FormMethod.Post))
+{
+<table class="table">
+    
+    <tr><th>
+
+</th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Telemovel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().NumeroCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().NumeroIdentificacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().TipoCliente.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Contrato)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.RadioButton("selectIdClient", item.ClienteID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telemovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroIdentificacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoCliente.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contrato)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ClienteID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ClienteID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ClienteID })*@
+            </td>
+        </tr>
+    }
+
+</table>
+<input type="submit" class="btn btn-primary" value="Continuar" />
+
+}
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
