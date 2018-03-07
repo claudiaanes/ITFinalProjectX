@@ -3,104 +3,101 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Cliente</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DataNascimento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumeroIdentificacao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumeroIdentificacao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NIF)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NIF)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumeroCliente)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumeroCliente)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Morada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Morada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nacionalidade)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nacionalidade)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telemovel)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telemovel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Balcao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Balcao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Contrato)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Contrato)
-        </dd>
-
-    </dl>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="client-details-title">
+            <h4>@Html.DisplayFor(model => model.Nome)</h4>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClienteID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="client-details-box">
+            <div class="row">
+                <div class="col-sm-4 col-md-2">
+                    <div class="text-center">
+                        <img src="~/Content/Images/21.jpg" alt="..." class="img-circle">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-5">
+                    <label>
+                        @Html.DisplayNameFor(model => model.TipoDocumento)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.NumeroIdentificacao)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.DataNascimento)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.DataNascimento)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.NIF)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.NIF)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.Nacionalidade)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.Nacionalidade)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.Morada)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.Morada)
+                    </p>
+                </div>
+                <div class="col-sm-4 col-md-5">
+                    <label>
+                        @Html.DisplayNameFor(model => model.Telemovel)
+                    </label>
+                    <p>
+                        <u>@Html.DisplayFor(model => model.Telemovel)</u>
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.Email)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.NumeroCliente)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.NumeroCliente)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.Balcao)
+                    </label>
+                    <p>
+                        @Html.DisplayFor(model => model.Balcao)
+                    </p>
+                    <label>
+                        @Html.DisplayNameFor(model => model.Contrato)
+                    </label>
+                    @if (Model.Contrato == true)
+                    {
+                        <p>Sim</p>
+                    }
+                    else
+                    {
+                        <p>Não</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <p>
+            @Html.ActionLink("VOLTAR", "Index", null, new { @class = "btn btn-default client-details-btn" })
+        </p>
+    </div>
+</div>
