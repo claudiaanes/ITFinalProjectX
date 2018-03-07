@@ -77,10 +77,17 @@ namespace ITFinalProject.Controllers
                         .Where(x => x.TipoDocumento.TipoDocumentoID.ToString().StartsWith(tipodoc, StringComparison.InvariantCultureIgnoreCase))
                         .Where(x => x.ClienteID == clienteId);
                 }
-                else
+                if(numconta == "")
                 {
-                    res = res.Where(x=> x.ClienteID == 0);
+                    res = res.Where(x => x.Nome.StartsWith(term, StringComparison.InvariantCultureIgnoreCase))
+                        .Where(x => x.NumeroIdentificacao.StartsWith(numeroident, StringComparison.InvariantCultureIgnoreCase))
+                        .Where(x => x.NumeroCliente.ToString().StartsWith(numeroclient, StringComparison.InvariantCultureIgnoreCase))
+                        .Where(x => x.DataNascimento.Date.ToString().StartsWith(datanasc, StringComparison.InvariantCultureIgnoreCase))
+                        .Where(x => x.TipoDocumento.TipoDocumentoID.ToString().StartsWith(tipodoc, StringComparison.InvariantCultureIgnoreCase));
                 }
+                if(numconta != "" && term == "" && numeroident == "" && numeroclient == "" && datanasc == "" && tipodoc == "")             
+                    res = res.Where(x=> x.ClienteID == 0);
+                
                 
                 
                     

@@ -223,10 +223,18 @@
     <Compile Include="Models\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\EncryptedActionParameterAttribute.cs" />
+    <Compile Include="Utils\MyExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Imagens\21.jpg" />
+    <Content Include="Content\Imagens\32.jpg" />
+    <Content Include="Content\Imagens\43.jpg" />
+    <Content Include="Content\Imagens\68.jpg" />
+    <Content Include="Content\Imagens\gaurav.JPG" />
+    <Content Include="Content\Imagens\photo-1507003211169-0a1dd7228f2d.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
