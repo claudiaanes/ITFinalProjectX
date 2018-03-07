@@ -85,10 +85,9 @@ namespace ITFinalProject.Controllers
                         .Where(x => x.DataNascimento.Date.ToString().StartsWith(datanasc, StringComparison.InvariantCultureIgnoreCase))
                         .Where(x => x.TipoDocumento.TipoDocumentoID.ToString().StartsWith(tipodoc, StringComparison.InvariantCultureIgnoreCase));
                 }
-                else
-                {
+                if(numconta != "" && term == "" && numeroident == "" && numeroclient == "" && datanasc == "" && tipodoc == "")             
                     res = res.Where(x=> x.ClienteID == 0);
-                }
+                
                 
                 
                     
