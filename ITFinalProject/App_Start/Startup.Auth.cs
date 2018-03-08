@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using ITFinalProject.Models;
+using static ITFinalProject.Models.ApplicationDbContext;
 
 namespace ITFinalProject
 {

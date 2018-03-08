@@ -252,6 +252,6 @@ C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Securi
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.csprojResolveAssemblyReference.cache
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.dll
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.pdb
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.csprojResolveAssemblyReference.cache

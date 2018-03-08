@@ -109,6 +109,8 @@ namespace ITFinalProject.Controllers
         }
 
         // POST: Clientes/Details/ trás o Id do Cliente
+        // So o admin acede
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Details([Bind(Include = "selectIdClient")] string selectIdClient)
         {
@@ -211,6 +213,18 @@ namespace ITFinalProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+ 
+        public JsonResult getClientes(string term)
+        {
+            if (term == null)
+                term = "";
+
+            var p = db.Clientes.Where(x => x.Nome.StartsWith(term, StringComparison.CurrentCultureIgnoreCase)).ToList()
+                 .Select(y => new { label = y.Nome, value = y.ClienteID });
+
+            return Json(p, JsonRequestBehavior.AllowGet);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
