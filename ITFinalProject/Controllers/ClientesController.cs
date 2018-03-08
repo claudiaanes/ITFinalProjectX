@@ -109,6 +109,8 @@ namespace ITFinalProject.Controllers
         }
 
         // POST: Clientes/Details/ trás o Id do Cliente
+        // So o admin acede
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Details([Bind(Include = "selectIdClient")] string selectIdClient)
         {

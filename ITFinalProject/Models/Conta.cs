@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ITFinalProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITFinalProject.Models
 {
@@ -28,7 +30,10 @@ namespace ITFinalProject.Models
         //[Required()]
         [Display(Name = "Cliente: ")]
         public virtual Cliente ClienteID { get; set; }
+
+
     }
+}
 
     public class ContaViewModel
     {
@@ -57,4 +62,3 @@ namespace ITFinalProject.Models
 
     }
 
-}

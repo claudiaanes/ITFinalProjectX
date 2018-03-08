@@ -5,9 +5,6 @@
 @{
     ViewBag.Title = "Clientes";
 }
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-<link href="~/Scripts/jquery-UI-custom/jquery-ui.theme.min.css" rel="stylesheet" />
-<script src="~/Scripts/jquery-UI-custom/jquery-ui.min.js"></script>
 <script type="text/javascript">
 
 jQuery.ui.autocomplete.prototype._resizeMenu = function () {
@@ -15,19 +12,20 @@ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
     ul.outerWidth(this.element.outerWidth());
 }
 $(function () {
-    $("#NomeCliente").autocomplete({
+    $("#term").autocomplete({
         source: '@Url.Action("getClientes", "Clientes")',
         minLength: 2,
         delay: 300,
         select: function (event, ui) {
-            $('#NomeCliente').val(ui.item.label);
-            $('#IDCliente').val(ui.item.value);
+            $('#term').val(ui.item.label);
+            $('#ClienteID').val(ui.item.value);
             return false;
         }
 
     });
 });
 </script>
+
 
 
 <h2>Clientes</h2>
@@ -38,10 +36,11 @@ $(function () {
 @using (Html.BeginForm("Index", "Clientes", FormMethod.Get, new { @class = "form" }))
 {
     <div class="form-group">
-        @Html.Label("Nome:","NomeCliente", new { @class = "col-md-2 control-label" })
+        @Html.Label("Nome:", new { @class = "col-md-2 control-label" })
         <div class="col-md-4 left">
-            @Html.HiddenFor(model => model.FirstOrDefault().ClienteID, new { id = "IDCliente", @class = "form-control" })
-            @Html.TextBox("term", ViewBag.CurrentFilterNome as string, new { id = "NomeCliente", @class = "form-control" })
+            <label class="control-label col-md-2" for="NomeCliente"></label>
+            @Html.HiddenFor(model => model.FirstOrDefault().ClienteID, new { id = "ClienteID", @class = "form-control" })
+            @Html.TextBox("term", ViewBag.CurrentFilterNome as string, new { id = "term", @class = "form-control" })
         </div>
     </div>
     <div class="form-group">

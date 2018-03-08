@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using static ITFinalProject.Models.ApplicationDbContext;
 
 namespace ITFinalProject.Models
 {
@@ -19,7 +23,18 @@ namespace ITFinalProject.Models
         public DbSet<TipoCliente> TipoClientes { get; set; }
         public DbSet<TipoDocumento> TipoDocumentoes { get; set; }
 
+        public class ApplicationUser : IdentityUser
+        {
+            public string ClienteID { get; set; }
 
+            public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+            {
+                // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+                var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+                // Add custom user claims here
+                return userIdentity;
+            }
+        }
 
 
 
@@ -67,6 +82,45 @@ namespace ITFinalProject.Models
                 context.Contas.Add(conta4);
                 context.Contas.Add(conta5);
                 context.Contas.Add(conta6);
+
+
+                //ASP.NET USers
+                context.Roles.Add(new IdentityRole()
+                {
+                    Name = "admin"
+                });
+                context.Roles.Add(new IdentityRole()
+                {
+                    Name = "cliente"
+                });
+
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var hasher = new PasswordHasher();
+                var user = new ApplicationUser
+                {
+                    UserName = cliente.Email,
+                    PasswordHash = hasher.HashPassword("ITSector"),
+                    ClienteID = cliente.ClienteID.ToString(),
+                    Email = cliente.Email
+                };
+                var user2 = new ApplicationUser
+                {
+                    UserName = cliente2.Email,
+                    PasswordHash = hasher.HashPassword("ITSector"),
+                    ClienteID = cliente2.ClienteID.ToString(),
+                    Email = cliente2.Email
+                };
+
+                //conta emaildamarisa@marisa.pt é admin
+                //Conta emaildaclaudia@claudia.pt cliente
+
+                IdentityResult result = manager.Create(user, "Admin.");
+                manager.AddToRole(user.Id, "admin");
+                IdentityResult result2 = manager.Create(user2, "Admin.");
+                manager.AddToRole(user2.Id, "cliente");
+
+
             }
         }
     }

@@ -72,9 +72,15 @@ namespace ITFinalProject.Models
         [DisplayFormat(NullDisplayText = "-")]
         public string ClienteImage { get; set; }
 
-        //ligação aos apsnetUsers
+
+
+        ////ASPNet users
+        //[Key]
+        //public string UserId { get; set; }
+
         //[ForeignKey("UserId")]
-        //public virtual ApplicationUser ApplicationUser { get; set; }
+        //public virtual ApplicationUser User { get; set; }
+
 
     }
 
