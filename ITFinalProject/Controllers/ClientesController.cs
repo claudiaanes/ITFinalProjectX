@@ -110,10 +110,11 @@ namespace ITFinalProject.Controllers
 
         // POST: Clientes/Details/ trás o Id do Cliente
         // So o admin acede
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public ActionResult Details([Bind(Include = "selectIdClient")] string selectIdClient)
         {
+
             //Redirecionamos para a lista de detalhes e passamos -lhe o id do cliente que vamos mostrar
             return RedirectToAction("Details", new { id = int.Parse(selectIdClient) });
 

@@ -185,6 +185,8 @@ C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\roslyn\VBCSCompiler.e
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\ITFinalProject.dll.config
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\ITFinalProject.dll
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\ITFinalProject.pdb
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\en\ITFinalProject.resources.dll
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\pt\ITFinalProject.resources.dll
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Antlr3.Runtime.dll
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\EntityFramework.dll
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\EntityFramework.SqlServer.dll
@@ -252,6 +254,10 @@ C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Securi
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.Resources.Global.en.resources
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.Resources.Global.pt.resources
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.csproj.GenerateResource.Cache
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\en\ITFinalProject.resources.dll
+C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\pt\ITFinalProject.resources.dll
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.dll
 C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.pdb
-C:\Users\E5768\Documents\ITFinalProject\ITFinalProject\obj\Debug\ITFinalProject.csprojResolveAssemblyReference.cache

@@ -222,6 +222,8 @@
     <Compile Include="Models\TipoCliente.cs" />
     <Compile Include="Models\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Global.en.Designer.cs" />
+    <Compile Include="Resources\Global.pt.Designer.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\EncryptedActionParameterAttribute.cs" />
     <Compile Include="Utils\MyExtensions.cs" />
@@ -234,8 +236,8 @@
     <Content Include="Content\Images\43.jpg" />
     <Content Include="Content\Images\68.jpg" />
     <Content Include="Content\Images\gaurav.JPG" />
+    <Content Include="Content\Images\logo1.png" />
     <Content Include="Content\Images\photo-1507003211169-0a1dd7228f2d.jpg" />
-    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -350,6 +352,10 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Global.en.resx" />
+    <EmbeddedResource Include="Resources\Global.pt.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

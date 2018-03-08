@@ -6,128 +6,151 @@
     ViewBag.Title = "Clientes";
 }
 
-<h2>Clientes</h2>
-<p>
-    @Html.ActionLink("Adicionar", "Create", null, new { @class = "btn btn-primary" })
-</p>
+<div class="container">
+    @using (Html.BeginForm("Index", "Clientes", FormMethod.Get, new { @class = "form" }))
+    {
+        <div class="bordercss">
+            <div class="row">
+                <div class="col-md-12 pesquisar">
+                    <h4>Pesquisar Cliente</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="bg-grey boxpadding clearfix">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Nome:", new { @class = "text-purple" })
+                            <div>
+                                @Html.TextBox("term", ViewBag.CurrentFilterNome as string, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Tipo de Documento:", new { @class = "text-purple" })
+                            <div>
+                                @Html.DropDownList("tipodoc", (List<SelectListItem>)ViewBag.tipodocm, "Tipo Doc", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Nº de Cliente:", new { @class = "text-purple" })
+                            <div>
+                                @Html.TextBox("numeroclient", ViewBag.CurrentFilterNumeroCliente as string, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Data de Nascimento:", new { @class = "text-purple" })
+                            <div>
+                                @Html.TextBox("datanasc", ViewBag.CurrentFilterDataNascimento as string, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Número Identificação:", new { @class = "text-purple" })
+                            <div>
+                                @Html.TextBox("numeroident", ViewBag.CurrentFilterNumeroIdentificacao as string, new { @class = "form-control" })
+                            </div>
+                        </div>
 
-@using (Html.BeginForm("Index", "Clientes", FormMethod.Get, new { @class = "form" }))
-{
-    <div class="form-group">
-        @Html.Label("Nome:", new { @class = "col-md-2 control-label" })
-        <div class="col-md-4 left">
-            @Html.TextBox("term", ViewBag.CurrentFilterNome as string, new { @class = "form-control" })
+                        <div class="form-group">
+                            @Html.Label("Número de conta:", new { @class = "text-purple" })
+                            <div>
+                                @Html.TextBox("numconta", ViewBag.CurrentFilterNumeroConta as string, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" class="btnpesquisar btn btn-primary" value="Pesquisar" />
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("NumeroIdentificação:", new { @class = "col-md-2 control-label" })
-        <div class="col-md-4 left">
-            @Html.TextBox("numeroident", ViewBag.CurrentFilterNumeroIdentificacao as string, new { @class = "form-control" })
+    }
+    <br>
+    @using (Html.BeginForm("Details", "Clientes", FormMethod.Post))
+    {
+        <div class="bordercss special">
+            <div class="row">
+                <div class="col-md-6">
+                    <span><i class="glyphicon glyphicon-info-sign"> @ViewBag.nResultados Resultados encontrados</i></span>
+                </div>
+                <div class="col-md-6">
+
+                    @Html.DropDownList("pageSize", (SelectList)ViewBag.pageSizes, "Itens Por Pagina", new { @class = "form-control1", onchange = "this.form.submit();" })
+
+                    @Html.Label("Resultados por página", new { @class = "resultadospag" })
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr class="active">
+                        <th>
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Telemovel)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().NumeroCliente)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().NumeroIdentificacao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().TipoCliente)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Contrato)
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                {
+                        <tr class="info">
+                            <td>
+                                @Html.RadioButton("selectIdClient", item.ClienteID, new { @checked = true })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telemovel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumeroCliente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumeroIdentificacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoCliente.Descricao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Contrato)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <span><i class="glyphicon glyphicon-info-sign"> @ViewBag.nResultados Resultados encontrados</i></span>
+                </div>
+                <div class="col-md-6 text-right">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Nº de Cliente:", new { @class = "col-md-2 control-label" })
-        <div class="col-md-4 left">
-            @Html.TextBox("numeroclient", ViewBag.CurrentFilterNumeroCliente as string, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Data de Nascimento:", new { @class = "col-md-2 control-label" })
-        <div class="col-md-4 left">
-            @Html.TextBox("datanasc", ViewBag.CurrentFilterDataNascimento as string, new { @class = "form-control" })
-        </div>
-    </div>
+        <br />        
+        <div class="col-md-12">
+            <input type="submit" class="btncontinuar btn btn-primary" value="Continuar" />
+        </div>        
+    }
+</div>
 
-    <div class="form-group">
-        @Html.Label("Tipo de Documento:", new { @class = "col-md-2 control-label" })
-        <div class="col-md-6 left">
-            @Html.DropDownList("tipodoc", (List<SelectListItem>)ViewBag.tipodocm, "Tipo Doc", new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Numero de conta:", new { @class = "col-md-2 control-label" })
-        <div class="col-md-4 left">
-            @Html.TextBox("numconta", ViewBag.CurrentFilterNumeroConta as string, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Numero de Itens Por Pagina:", new { @class = "col-md-2 control-label" })
-        <div class="col-md-6 left">
-            @Html.DropDownList("pageSize", (SelectList)ViewBag.pageSizes, "Itens Por Pagina", new { @class = "form-control", onchange = "this.form.submit();" })
-        </div>
-    </div>
-        <input type="submit" class="btn btn-primary" value="Filtrar" />
-}
-<span><i class="glyphicon glyphicon-info-sign"> @ViewBag.nResultados Resultados encontrados</i></span>
-
-@using (Html.BeginForm("Details", "Clientes", FormMethod.Post))
-{
-    <table class="table">
-
-        <tr>
-            <th>
-
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Telemovel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().NumeroCliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().NumeroIdentificacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().TipoCliente.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Contrato)
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.RadioButton("selectIdClient", item.ClienteID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telemovel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumeroCliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumeroIdentificacao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TipoCliente.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contrato)
-                </td>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ClienteID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ClienteID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ClienteID })*@
-                </td>
-            </tr>
-        }
-
-    </table>
-
-
-
-    <div>
-        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
-
-    </div>
-    <input type="submit" class="btn btn-primary" value="Continuar" />
-}

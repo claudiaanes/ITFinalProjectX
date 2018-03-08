@@ -1,12 +1,20 @@
-﻿body {
-    padding-top: 50px;
+﻿html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    padding-top: 110px;
     padding-bottom: 20px;
+    height: 100%;
+    margin: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    /*padding-left: 15px;
+    padding-right: 15px;*/
+    min-height: calc(100%-90px);
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -20,9 +28,8 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 280px;*/
 }
-
 
 /**
     Daniel CSS Begin 
@@ -40,10 +47,16 @@ textarea {
     color: #218C00;
 }
 
-.form-control, 
-.btn {
-    border-radius: 0;
+.text-purple {
+    color: #672168;
 }
+
+
+.form-control,
+.btn {
+    border-radius: 0px;
+}
+
 .bg-grey {
     background-color: #F5F5F5;
 }
@@ -62,9 +75,13 @@ textarea {
     margin: 20px 0;
 }
 
-#loginForm .form-control, 
+#loginForm .form-control,
 #loginForm .btn {
     border-radius: 2px;
+}
+
+#loginForm .form-control {
+    max-width: 280px;
 }
 
 #loginForm .input-icon-info {
@@ -90,33 +107,231 @@ textarea {
     color: #004793;
     text-transform: uppercase;
 }
+
 .client-details-box {
     margin: 4px 0 60px 0;
     padding: 20px;
 }
+
 .client-details-box img {
     margin-top: 45px;
     border: 5px solid #fff;
     margin-bottom: 40px;
 }
+
 .client-details-btn {
     padding-top: 8px;
     padding-bottom: 8px;
     border-color: #ddd;
     width: 100%;
 }
+
 .client-details-box label {
     margin: 0;
     font-weight: 100;
     color: #999;
 }
+
 .client-details-box p {
     color: #004793;
 }
-
-/*@media (min-width: 768px ) {
-
-}*/
 /**
     Daniel CSS End 
+*/
+
+/**
+    Joel CSS Begin 
+*/
+
+
+.form-control {
+    width: 100%;
+}
+
+.form-control1 {
+    width: 11%;
+    float: right;
+}
+
+.btnpesquisar {
+    float: right;
+    text-transform: uppercase;
+}
+
+.boxpadding {
+    padding: 20px;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.pesquisar {
+    background-color: #004793;
+    color: #F5F5F5;
+}
+
+.bordercss {
+    border: 1px solid #eee;
+    padding: 11px 26px;
+}
+
+    .bordercss.special {
+        padding: 11px 12px;
+    }
+
+        .bordercss.special table {
+            margin-top: 10px;
+        }
+
+.resultadospag {
+    float: right;
+    font-weight: normal;
+    margin-right: 8px;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    margin-right: 10px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color: white;
+    color: black;
+}
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    margin-right: 0;
+    background-color: white;
+    color: black;
+}
+
+.pagination > li > a, .pagination > li > span {
+    margin-right: 10px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color: white;
+    color: black;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+footer {
+    width: 100%;
+    height: 90px;
+    background-color: #004793;
+    /*position: fixed;*/
+    /*left: 0;
+   bottom: 0;*/
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -80px;
+}
+
+    .wrapper:after {
+        content: "";
+        display: block;
+    }
+
+    .wrapper:after, footer {
+        height: 100px;
+    }
+
+
+        footer .social {
+            color: white;
+            font-size: x-large;
+            margin-right: 12px;
+        }
+
+        footer .textc {
+            padding-top: 15px;
+            font-size: x-small;
+            color: white;
+        }
+
+        footer .direitos {
+            color: white;
+            text-align: right;
+            /*margin-left:500px;*/
+            font-size: x-small;
+        }
+
+.navbar {
+    min-height: 80px;
+    background-color: #004793;
+    border: none;
+}
+
+.navbar-brand {
+    height: auto;
+}
+
+    .navbar-brand img {
+        height: 60px;
+    }
+
+.navbar-inverse .navbar-nav > li > a.btnSair {
+    content: "\e163";
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    margin-top: 23px;
+    padding: 10px 30px;
+}
+
+    .navbar-inverse .navbar-nav > li > a.btnSair:hover {
+        background-color: rgba(250, 244, 244, 0.22);
+        border-radius: 10px;
+    }
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #004793;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.open .dropdown-toggle.btn-info {
+    color: #ffffff;
+    background-color: rgba(57, 179, 215, 0.27);
+    border-color: #269abc;
+}
+
+.locali {
+    padding-top: 20px;
+}
+
+.btncontinuar {
+    padding: 10px 80px;
+    text-transform: uppercase;
+    float: right;
+}
+
+@media only screen and (max-width: 768px) {
+    footer {
+        height: 200px;
+    }
+
+    body {
+        padding-top: 160px;
+    }
+
+    .btncontinuar {
+        padding: 10px 55px;
+        text-transform: uppercase;
+        float: right;
+    }
+}
+/**
+    Joel CSS End 
 */

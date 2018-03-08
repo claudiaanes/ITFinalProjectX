@@ -69,17 +69,11 @@ namespace ITFinalProject.Models
         [DisplayFormat(NullDisplayText = "-")]
         public bool Contrato { get; set; }
 
-        [DisplayFormat(NullDisplayText = "-")]
+        [DisplayFormat(NullDisplayText = "default.jpg")]
         public string ClienteImage { get; set; }
 
 
 
-        ////ASPNet users
-        //[Key]
-        //public string UserId { get; set; }
-
-        //[ForeignKey("UserId")]
-        //public virtual ApplicationUser User { get; set; }
 
 
     }
