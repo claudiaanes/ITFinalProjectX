@@ -77,7 +77,13 @@ namespace ITFinalProject.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    if (returnUrl == null)
+                    {
+                        return RedirectToAction("Index", "Clientes");
+                    }
+                    else
+                        return RedirectToLocal(returnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
