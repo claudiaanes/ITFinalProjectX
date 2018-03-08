@@ -213,7 +213,7 @@ namespace ITFinalProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+ 
         public JsonResult getClientes(string term)
         {
             if (term == null)
