@@ -75,22 +75,22 @@ textarea {
     margin: 20px 0;
 }
 
-#loginForm .form-control,
-#loginForm .btn {
-    border-radius: 2px;
-}
+    #loginForm .form-control,
+    #loginForm .btn {
+        border-radius: 2px;
+    }
 
-#loginForm .form-control {
-    max-width: 280px;
-}
+    #loginForm .form-control {
+        max-width: 280px;
+    }
 
-#loginForm .input-icon-info {
-    position: absolute;
-    margin-top: -24px;
-    margin-left: 290px;
-    font-weight: 700;
-    opacity: 0.5;
-}
+    #loginForm .input-icon-info {
+        position: absolute;
+        margin-top: -24px;
+        margin-left: 290px;
+        font-weight: 700;
+        opacity: 0.5;
+    }
 
 .box-padding {
     padding: 10px;
@@ -113,11 +113,11 @@ textarea {
     padding: 20px;
 }
 
-.client-details-box img {
-    margin-top: 45px;
-    border: 5px solid #fff;
-    margin-bottom: 40px;
-}
+    .client-details-box img {
+        margin-top: 45px;
+        border: 5px solid #fff;
+        margin-bottom: 40px;
+    }
 
 .client-details-btn {
     padding-top: 8px;
@@ -278,19 +278,24 @@ footer {
         height: 60px;
     }
 
-.navbar-inverse .navbar-nav > li > a.btnSair {
-    content: "\e163";
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    margin-top: 23px;
-    padding: 10px 30px;
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+    margin-top: 18px;
 }
 
-    .navbar-inverse .navbar-nav > li > a.btnSair:hover {
-        background-color: rgba(250, 244, 244, 0.22);
-        border-radius: 10px;
+    .navbar-inverse .navbar-nav > li > a.btnSair {
+        content: "\e163";
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        margin-top: 23px;
+        padding: 10px 30px;
     }
+
+        .navbar-inverse .navbar-nav > li > a.btnSair:hover {
+            background-color: rgba(250, 244, 244, 0.22);
+            border-radius: 10px;
+        }
 
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
@@ -305,10 +310,6 @@ footer {
     color: #ffffff;
     background-color: rgba(57, 179, 215, 0.27);
     border-color: #269abc;
-}
-
-.locali {
-    padding-top: 20px;
 }
 
 .btncontinuar {
@@ -332,6 +333,7 @@ footer {
         float: right;
     }
 }
+
 /**
     Joel CSS End 
 */
