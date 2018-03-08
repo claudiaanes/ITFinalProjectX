@@ -229,12 +229,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Imagens\21.jpg" />
-    <Content Include="Content\Imagens\32.jpg" />
-    <Content Include="Content\Imagens\43.jpg" />
-    <Content Include="Content\Imagens\68.jpg" />
-    <Content Include="Content\Imagens\gaurav.JPG" />
-    <Content Include="Content\Imagens\photo-1507003211169-0a1dd7228f2d.jpg" />
+    <Content Include="Content\Images\21.jpg" />
+    <Content Include="Content\Images\32.jpg" />
+    <Content Include="Content\Images\43.jpg" />
+    <Content Include="Content\Images\68.jpg" />
+    <Content Include="Content\Images\gaurav.JPG" />
+    <Content Include="Content\Images\photo-1507003211169-0a1dd7228f2d.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

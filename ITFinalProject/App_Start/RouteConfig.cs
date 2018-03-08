@@ -10,14 +10,16 @@ namespace ITFinalProject
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Clientes",
-                url: "Clientes/{id}",
+                name: "Clients",
+                url: "{lang}/Clientes/{id}",
+                constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" },   // en or en-US
                 defaults: new { controller = "Clientes", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "DetalhesCliente",
-                url: "DetalhesCliente/{id}",
+                name: "ClientDetails",
+                url: "{lang}/DetalhesCliente/{id}",
+                constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" },   // en or en-US
                 defaults: new { controller = "Clientes", action = "Details", id = UrlParameter.Optional }
             );
 
