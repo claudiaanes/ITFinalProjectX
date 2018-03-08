@@ -69,7 +69,7 @@
         </div>
     }
     <br>
-    @using (Html.BeginForm("Details", "Clientes", FormMethod.Post))
+    @using (Html.BeginForm("Index", "Clientes", new { id = "formulario" }, FormMethod.Post))
     {
         <div class="bordercss special">
             <div class="row">
@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-md-6">
 
-                    @Html.DropDownList("pageSize", (SelectList)ViewBag.pageSizes, "Itens Por Pagina", new { @class = "form-control1", onchange = "postPageSize(this)" })
+                    @Html.DropDownList("pageSize", (SelectList)ViewBag.pageSizes, "Itens Por Pagina", new { @class = "form-control1", onchange = "this.form.submit()" })
 
                     @Html.Label("Resultados por página", new { @class = "resultadospag" })
                 </div>
@@ -142,24 +142,39 @@
                     <span><i class="glyphicon glyphicon-info-sign"> @ViewBag.nResultados Resultados encontrados</i></span>
                 </div>
                 <div class="col-md-6 text-right">
-                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, pageSize = ViewBag.pageSizesSelected }))
 
                 </div>
             </div>
         </div>
-        <br />        
+        <br />
         <div class="col-md-12">
             <input type="submit" class="btncontinuar btn btn-primary" value="Continuar" />
-        </div>        
+        </div>
+
     }
+
 </div>
 
 <script>
-    // Javascript
-    function postPageSize(elem) {
-        var id = elem.id;
-        var value = elem.value;
-        $.get("/clientes/index", { pageSize: value };
-     });
-        }
+  //  $(document).ready(function () {
+  //      $('#td  input').on('change', function () {
+  //          alert($('input[name=selectIdClient]:checked', '#td').val());
+  //      });
+  //});
+    // Javascript onclick="postDetails()"
+    @*function hideContinuar() {
+
+        $('#formulario input').on('change', function () {
+            alert($('input[name=selectIdClient]:checked', '#formulario').val());
+        });
+
+        @*var id = document.getElementById("selectIdClient").value; //if you want to pass an Id parameter
+        window.location.href = '@Url.Action("Details", "Clientes")/' + id;
+        //var radio = document.getElementById("selectIdClient").value;
+        //alert(radio);
+        // $.get("/clientes/details", { selectIdClient: radio })
+    };*@
+
 </script>

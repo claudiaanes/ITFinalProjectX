@@ -15,8 +15,13 @@ namespace ITFinalProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Clientes
-        public ActionResult Index(string term, string numeroident, string numeroclient, string datanasc, string tipodoc, string numconta, string sortOrder, string currentFilter, int? page, int? pageSize, string TipoCliente)
+        public ActionResult Index(string term, string numeroident, string numeroclient, string datanasc, string tipodoc, string numconta, string sortOrder, string currentFilter, int? page, int? pageSize, string selectIdClient)
+
         {
+            if (selectIdClient!=null)
+            {
+                return RedirectToAction("Details", new { id = int.Parse(selectIdClient) });
+            }
             var contas = db.Contas.Include(r => r.ClienteID);
 
 
@@ -36,9 +41,11 @@ namespace ITFinalProject.Controllers
             ViewBag.tipodocm = listaTipoDoc;
 
             ViewBag.pageSizes = new SelectList(new[] { 3,6, 10, 15 });
+
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "name_asc";
-            int rPagesSize = pageSize ?? 5;
+            int rPagesSize = pageSize ?? 6;
+            ViewBag.pageSizesSelected = rPagesSize;
             int pageNumber = (page ?? 1);
             if (term != null)
             {
@@ -111,14 +118,14 @@ namespace ITFinalProject.Controllers
         // POST: Clientes/Details/ trás o Id do Cliente
         // So o admin acede
         //[Authorize(Roles = "admin")]
-        [HttpPost]
-        public ActionResult Details([Bind(Include = "selectIdClient")] string selectIdClient)
-        {
+        //[HttpPost]
+        //public ActionResult Details([Bind(Include = "selectIdClient")] string selectIdClient)
+        //{
 
-            //Redirecionamos para a lista de detalhes e passamos -lhe o id do cliente que vamos mostrar
-            return RedirectToAction("Details", new { id = int.Parse(selectIdClient) });
+        //    //Redirecionamos para a lista de detalhes e passamos -lhe o id do cliente que vamos mostrar
+        //    return RedirectToAction("Details", new { id = int.Parse(selectIdClient) });
 
-        }
+        //}
 
         // GET: Clientes/Details/5
         public ActionResult Details(int? id)
