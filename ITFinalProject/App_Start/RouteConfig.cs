@@ -10,23 +10,30 @@ namespace ITFinalProject
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Clients",
-                url: "{lang}/Clientes/{id}",
-                constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" },   // en or en-US
+                name: "Clientes",
+                url: "Clientes/{id}",
+                //constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" },   // en or en-US
                 defaults: new { controller = "Clientes", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
+                name: "Login",
+                url: "Login/",
+                //constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" },   // en or en-US
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "ClientDetails",
-                url: "{lang}/DetalhesCliente/{id}",
-                constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" },   // en or en-US
+                url: "DetalhesCliente/{id}",
+                //constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" },   // en or en-US
                 defaults: new { controller = "Clientes", action = "Details", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Clientes", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
